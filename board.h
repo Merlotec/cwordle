@@ -14,6 +14,11 @@
 #define STATE_AMBER 2
 #define STATE_GREEN 3
 
+#define COL_STD "\x1B[0m"
+#define COL_GREEN "\x1B[32m"
+#define COL_AMBER "\x1B[33m"
+#define COL_RED "\x1B[31m"
+
 struct guess {
 	char* word;
 	char* states;

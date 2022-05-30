@@ -3,11 +3,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define COL_STD "\x1B[0m"
-#define COL_GREEN "\x1B[32m"
-#define COL_AMBER "\x1B[33m"
-#define COL_RED "\x1B[31m"
-
 #define EMPTY_CHAR '_'
 
 void make_uppercase(char* s) {
@@ -70,6 +65,12 @@ guess_t fill_letters(board_t* board, char* word, int word_len) {
 int make_guess(board_t* board, char* word) {
         int wlen = strlen(word);
 
+	int i;
+	for (i = 0; i < wlen; i++) {
+		if (!isalpha(word[i])) {
+			return GUESS_INVALID_WORD;
+		}
+	}
         if (wlen != board->word_len) {
                 return GUESS_INVALID_WORD;
         } else if (!can_guess(board)) {
